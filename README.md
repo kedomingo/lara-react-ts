@@ -46,12 +46,17 @@ Point your browser to http://127.0.0.1:8000/admin and it should show a test admi
 
 ## The setup
 
-There are 2 routes: `/{path?}` which point to `ExampleController::test` and `/admin/{path?}` which points to `AdminController::admin`
+There are 2 routes: `/{path?}` which point to `ExampleController::test` and `/admin/{path?}` which points to `AdminController::admin`.
 
 The main js `resources/tsx/app.js` loads the main app components `Example` and `Adminkit` from `resources/tsx/components/example/Example.tsx` 
 and `resources/tsx/components/adminkit/AdminKit.tsx` respectively.
 
 These 2 apps will render whenever the id they assigned for themselves is available in the DOM
+
+Laravel will be used for top-level routes. For everything else, the goal is to use 
+[React Router](https://github.com/ReactTraining/react-router).
+When set up correctly, you can have a React route `/admin/settings`. Laravel still routes this to `AdminController::admin` and renders the Admin app.
+But the React router will see the route and render a `Settings` component, for example.
 
 ### Example app
 
@@ -62,3 +67,6 @@ The layout file has a `div` with id `example`. The `Example` component sees this
 
 `AdminController::test` renders `resources/views/admin/admin.blade.php`. This extends the layout `resources/views/layouts/adminkit.blade.php`.
 The layout file has a `div` with id `adminkit`. The `AdminKit` component sees this element and renders the app in it.
+
+The `AdminKit` component is made up of several sub-components, and is a wrapper for something. 
+That something can be anything, as long as it is returned by the `renderContents()` method in `AdminKit`.
