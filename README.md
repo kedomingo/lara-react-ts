@@ -38,9 +38,9 @@ $ cd /your/path/to/project
 $ php artisan serve
 ```
 
-Point your browser to http://127.0.0.1:8000/ it should show the message Hello World rendered by the `Text.tsx` component, and attached to the `App.tsx` component
+Point your browser to http://127.0.0.1:8000/ it should show the message Hello World rendered by the `Text.tsx` component, and attached to the `Example.tsx` component
 
-Point your browser to http://127.0.0.1:8000/admin and it should show a test admin template split into different components
+Point your browser to http://127.0.0.1:8000/admin and it should show a test admin component (`AdminKit`) split into different components (`SidebarNav`, `MainNav`, `Footer`)
 
 ## The setup
 
