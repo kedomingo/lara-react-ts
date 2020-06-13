@@ -9,7 +9,7 @@
     <meta name="author" content="AdminKit">
     <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+    <link rel="shortcut icon" href="/img/icons/icon-48x48.png"/>
 
     <title>Blank Page | AdminKit Demo</title>
 
@@ -18,7 +18,7 @@
 
 <body>
 
-<div id="adminkit">
+<div id="example">
 </div>
 
 <script src="/js/app.js"></script>

@@ -17,4 +17,5 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/{path?}', 'TestController@test');
+Route::get('/admin/{path?}', 'AdminController@admin');
+Route::get('/{path?}', 'ExampleController@test');

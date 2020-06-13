@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+
+// Build adminkit resources
 require('./adminkit');
 
 /**
@@ -13,4 +15,5 @@ require('./adminkit');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require('./components/adminkit/App');
+require('./components/adminkit/AdminKit');
+require('./components/example/Example');
