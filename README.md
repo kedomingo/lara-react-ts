@@ -30,7 +30,11 @@ $ php artisan key:generate
 # Install JS dependencies
 $ yarn install
 
-# Start webserver
+# Build JS and watch for changes (while you develop components)
+# yarn watch
+
+# Start webserver in another terminal
+$ cd /your/path/to/project
 $ php artisan serve
 ```
 
