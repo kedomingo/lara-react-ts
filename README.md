@@ -2,7 +2,7 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/kedomingo/kedomingo.github.io/master/images/lara-react-ts.png" width="500"></p>
 
-## About Laravel
+## About this Project
 
 This is a Laravel 7.0 application setup to run pages in React and Typescript.
 
