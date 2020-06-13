@@ -22,8 +22,13 @@ Clone this repository in your local environment.
 $ mkdir project
 $ git clone https://github.com/kedomingo/lara-react-ts.git .
 
+# Install PHP dependencies
 $ composer install
+
+# Install JS dependencies
 $ yarn install
+
+# Start webserver
 $ php artisan serve
 ```
 
