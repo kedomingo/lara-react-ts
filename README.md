@@ -65,7 +65,7 @@ The layout file has a `div` with id `example`. The `Example` component sees this
 
 ### Admin app
 
-`AdminController::test` renders `resources/views/admin/admin.blade.php`. This extends the layout `resources/views/layouts/adminkit.blade.php`.
+`AdminController::admin` renders `resources/views/admin/admin.blade.php`. This extends the layout `resources/views/layouts/adminkit.blade.php`.
 The layout file has a `div` with id `adminkit`. The `AdminKit` component sees this element and renders the app in it.
 
 The `AdminKit` component is made up of several sub-components, and is a wrapper for something. 
