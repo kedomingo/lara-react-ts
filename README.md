@@ -22,8 +22,10 @@ Clone this repository in your local environment.
 $ mkdir project
 $ git clone https://github.com/kedomingo/lara-react-ts.git .
 
-# Install PHP dependencies
+# Install PHP dependencies and setup Laravel env
 $ composer install
+$ cp .env.example .env
+$ php artisan key:generate
 
 # Install JS dependencies
 $ yarn install
