@@ -5,7 +5,8 @@
  * isReactLink: if the link is a react route
  * items: sub-level nav items
  *
- * itemBindId: for internal use. Used to bind collapse and expansion of sub-menus to their parent
+ * itemBindId: for internal use. Used to bind collapse and expansion of sub-menus to their parent.
+ *             Required when there are sub items
  */
 export type SidebarNavItemType = {
     key: string;
@@ -17,10 +18,10 @@ export type SidebarNavItemType = {
 
     subItems?: SidebarNavItemTypeNoKey[];
     itemBindId?: string;
-    isCollapsed?: boolean;
 
     activeUrl: string; // The url to compare itself to
     onClick: (destination: string) => void;
+    expandHandler: (state: boolean) => void;
 };
 
 /**

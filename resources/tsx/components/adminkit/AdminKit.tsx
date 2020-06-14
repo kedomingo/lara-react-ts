@@ -30,6 +30,7 @@ const AdminKit = () => {
             //     isReactLink: boolean,
             //     isHeader: boolean,
             // }
+
             {
                 contents: 'Pages',
                 isHeader: true,
@@ -92,7 +93,30 @@ const AdminKit = () => {
                 itemBindId: 'uiforms',
                 subItems: [
                     {contents: 'Form Layouts', link: '/admin/forms-layouts', isReactLink: true},
-                    {contents: 'Basic Inputs', link: '/admin/forms-basic-inputs', isReactLink: true},
+                    {
+                        contents: 'Basic Inputs',
+                        link: '/admin/forms-basic-inputs',
+                        isReactLink: true,
+                        // Test 3, 4 levels
+                        itemBindId: 'level3',
+                        subItems: [
+                            {contents: 'Level 3 - 1', link: '/admin/level3-1', isReactLink: true},
+                            {
+                                contents: 'Level 3 - 2',
+                                link: '/admin/level3-2',
+                                isReactLink: true,
+                                itemBindId: 'level4',
+                                subItems: [
+                                    {contents: 'Level 4 - 1', link: '/admin/level4-1', isReactLink: true},
+                                    {
+                                        contents: 'Level 4 - 2',
+                                        link: '/admin/level4-2',
+                                        isReactLink: true
+                                    },
+                                ]
+                            },
+                        ]
+                    },
                 ]
             },
             {
@@ -151,10 +175,11 @@ const AdminKit = () => {
             </Router>
         </div>
     );
-};
-
-export default AdminKit;
-
-if (document.getElementById('adminkit') !== null) {
-    ReactDOM.render(<AdminKit/>, document.getElementById('adminkit'));
 }
+    ;
+
+    export default AdminKit;
+
+    if (document.getElementById('adminkit') !== null) {
+        ReactDOM.render(<AdminKit/>, document.getElementById('adminkit'));
+    }

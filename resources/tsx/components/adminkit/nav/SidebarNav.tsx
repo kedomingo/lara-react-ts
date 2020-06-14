@@ -35,6 +35,7 @@ const SidebarNav = (navitems: SidebarNavItemCollection) => {
                             itemBindId={item.itemBindId}
                             onClick={onNavClick}
                             activeUrl={activeUrl}
+                            expandHandler={() => {}}
                         />
                     })}
                 </ul>
