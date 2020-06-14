@@ -17,5 +17,10 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+// This is a hard route that will display an app on the main admin wrapper
+Route::get('/admin/forms-basic-inputs', 'AdminController@basicInputsHardRoute');
+// This is the default admin "app"
 Route::get('/admin/{path?}', 'AdminController@admin');
+
+// This is an example of component rendering
 Route::get('/{path?}', 'ExampleController@test');

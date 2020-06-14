@@ -15,4 +15,14 @@ class AdminController extends Controller
     {
         return view('admin.admin');
     }
+
+    /**
+     * Test rendering using a hard route (instead of React route)
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function basicInputsHardRoute()
+    {
+        return view('admin.basicInputsHardRoute');
+    }
 }
