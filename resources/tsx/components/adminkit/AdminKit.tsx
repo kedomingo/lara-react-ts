@@ -1,14 +1,26 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 
 import MainNav from './nav/MainNav';
 import SidebarNav from './nav/SidebarNav';
 import Footer from './Footer';
 
+// For demo - react route
+import FormsBasicInputs from "./demo/FormsBasicInputs";
+// For demo - hard link
+import FormsLayouts from "./demo/FormsLayouts";
+
+
 const AdminKit = () => {
 
     /**
-     * SidebarNavItemType[]
+     * SidebarNavItemCollection
      */
     const sidebarItems = [
             // {
@@ -30,22 +42,22 @@ const AdminKit = () => {
             {
                 contents: 'Profile',
                 icon: 'user',
-                link: '/profile',
+                link: '/admin/profile',
             },
             {
                 contents: 'Settings',
                 icon: 'settings',
-                link: '/settings',
+                link: '/admin/settings',
             },
             {
                 contents: 'Invoice',
                 icon: 'credit-card',
-                link: '/invoice',
+                link: '/admin/invoice',
             },
             {
                 contents: 'Blank',
                 icon: 'book',
-                link: '/blank',
+                link: '/admin/blank',
             },
 
 
@@ -59,19 +71,19 @@ const AdminKit = () => {
                 link: 'ui-elements',
                 itemBindId: 'uielements',
                 subItems: [
-                    {contents: 'Alerts', link: '/ui-alerts',},
-                    {contents: 'Buttons', link: '/ui-buttons',},
-                    {contents: 'Cards', link: '/ui-cards',},
-                    {contents: 'General', link: '/ui-general',},
-                    {contents: 'Grid', link: '/ui-grid',},
-                    {contents: 'Modals', link: '/ui-modals',},
-                    {contents: 'Typography', link: '/ui-typography',},
+                    {contents: 'Alerts', link: '/admin/ui-alerts',},
+                    {contents: 'Buttons', link: '/admin/ui-buttons',},
+                    {contents: 'Cards', link: '/admin/ui-cards',},
+                    {contents: 'General', link: '/admin/ui-general',},
+                    {contents: 'Grid', link: '/admin/ui-grid',},
+                    {contents: 'Modals', link: '/admin/ui-modals',},
+                    {contents: 'Typography', link: '/admin/ui-typography',},
                 ]
             },
             {
                 contents: 'Icons',
                 icon: 'coffee',
-                link: '/icons-feather',
+                link: '/admin/icons-feather',
             },
             {
                 contents: 'Forms',
@@ -79,17 +91,17 @@ const AdminKit = () => {
                 link: 'ui-forms',
                 itemBindId: 'uiforms',
                 subItems: [
-                    {contents: 'Form Layouts', link: '/forms-layouts',},
-                    {contents: 'Basic Inputs', link: '/forms-basic-inputs',},
+                    {contents: 'Form Layouts', link: '/admin/forms-layouts', isReactLink: true},
+                    {contents: 'Basic Inputs', link: '/admin/forms-basic-inputs', isReactLink: true},
                 ]
             },
             {
                 contents: 'Tables',
-                icon: 'tables-bootstrap',
-                link: '/list',
+                icon: 'list',
+                link: '/admin/tables-bootstrap',
             },
 
-        
+
             {
                 contents: 'Plugins & Addons',
                 isHeader: true,
@@ -97,12 +109,12 @@ const AdminKit = () => {
             {
                 contents: 'Charts',
                 icon: 'bar-chart-2',
-                link: '/charts-chartjs',
+                link: '/admin/charts-chartjs',
             },
             {
                 contents: 'Maps',
                 icon: 'map',
-                link: '/maps-google',
+                link: '/admin/maps-google',
             },
 
         ]
@@ -110,28 +122,33 @@ const AdminKit = () => {
 
     const renderContents = function () {
         return (
-            <div>
-                <h1>Sample Content</h1>
-                <hr/>
-                <p>
-                    Lorm ipsum
-                </p>
-            </div>
+            <>
+                <Switch>
+                    <Route path="/admin/forms-basic-inputs">
+                        <FormsBasicInputs contents={''}/>
+                    </Route>
+                    <Route path="/admin/forms-layouts">
+                        <FormsLayouts contents={''}/>
+                    </Route>
+                </Switch>
+            </>
         );
     };
 
     return (
-        <div class="wrapper">
-            <SidebarNav items={sidebarItems}/>
-            <div class="main">
-                <MainNav contents={''}/>
+        <div className="wrapper">
+            <Router>
+                <SidebarNav items={sidebarItems}/>
+                <div className="main">
+                    <MainNav contents={''}/>
 
-                <main class="content">
-                    {renderContents()}
-                </main>
+                    <main className="content">
+                        {renderContents()}
+                    </main>
 
-                <Footer contents={''}/>
-            </div>
+                    <Footer contents={''}/>
+                </div>
+            </Router>
         </div>
     );
 };

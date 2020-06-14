@@ -1,23 +1,31 @@
 import React, {useState} from 'react';
 import SidebarNavItem from './SidebarNavItem';
-import {SidebarNavItemCollection} from '../shared/types';
+import {SidebarNavItemCollection, SidebarNavItemType, SidebarNavItemTypeNoKey} from '../shared/types';
 
-type Props = {
-    contents: string;
-};
+const SidebarNav = (navitems: SidebarNavItemCollection) => {
 
-const SidebarNav = (items: SidebarNavItemCollection) => {
+    const getCurrentLocation = () =>
+        document.location.pathname.replace(/(\?.*)?(#.*)?$/, '');
+
+    const generateNavItemKey = (item: SidebarNavItemTypeNoKey) =>
+        (item.contents + item.link).replace(/\W/g, '');
+
+    const onNavClick = (destination: string) =>
+        setActiveUrl(destination);
+
+    const [activeUrl, setActiveUrl] = useState(getCurrentLocation());
+
     return (
-        <nav id="sidebar" class="sidebar">
-            <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="index.html">
-                    <span class="align-middle">AdminKit</span>
+        <nav id="sidebar" className="sidebar">
+            <div className="sidebar-content js-simplebar">
+                <a className="sidebar-brand" href="index.html">
+                    <span className="align-middle">AdminKit</span>
                 </a>
 
-                <ul class="sidebar-nav">
-
-                    {items.items.map((item, index) => {
+                <ul className="sidebar-nav">
+                    {navitems.items.map((item, index) => {
                         return <SidebarNavItem
+                            key={generateNavItemKey(item)}
                             contents={item.contents}
                             isHeader={item.isHeader}
                             link={item.link}
@@ -25,22 +33,12 @@ const SidebarNav = (items: SidebarNavItemCollection) => {
                             isReactLink={item.isReactLink}
                             subItems={item.subItems}
                             itemBindId={item.itemBindId}
+                            onClick={onNavClick}
+                            activeUrl={activeUrl}
                         />
                     })}
-
                 </ul>
 
-                <div class="sidebar-cta">
-                    <div class="sidebar-cta-content">
-                        <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                        <div class="mb-3 text-sm">
-                            Are you looking for more components? Check out our premium version.
-                        </div>
-                        <a href="https://adminkit.io/pricing" target="_blank" class="btn btn-primary btn-block">Upgrade
-                            to
-                            Pro</a>
-                    </div>
-                </div>
             </div>
         </nav>
     );

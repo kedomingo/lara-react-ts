@@ -6,7 +6,7 @@ type Props = {
 
 const Text = (props: Props) => {
     return (
-        <span class="asdhgjasdg">{props.contents}</span>
+        <span className="asdhgjasdg">{props.contents}</span>
     );
 };
 
